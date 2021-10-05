@@ -1,0 +1,16 @@
+server:
+  port: 8000
+
+zuul:
+  prefix: /v1
+  ignoredServices: '*'
+  routes:
+    spring-kafka:
+      path: /messages/**
+      serviceId: spring-kafka
+      sensitiveHeaders:
+
+    fix-message:
+      path: /fix/**
+      serviceId: fix-message
+      sensitiveHeaders:
